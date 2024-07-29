@@ -2,27 +2,29 @@
 
 ## Descripción
 
-Esta API permite reservar una casa, validar un código de descuento y almacenar la información en una base de datos PostgreSQL.
+Esta API permite reservar un libro, validar un código de descuento y almacenar la información en una base de datos H2.
 
 ## Requisitos
 
 - Java 11 o superior
 - Maven
-- PostgreSQL
+- H2
 
 ## Configuración
 
 1. Clona el repositorio:
     ```bash
-    git clone <URL_DEL_REPOSITORIO>
+    git clone <https://github.com/felixjsb96/CodingTestSB.git>
     cd reservas-api
     ```
 
 2. Configura la base de datos en `src/main/resources/application.properties`:
     ```properties
-    spring.datasource.url=jdbc:postgresql://localhost:5432/reservas
-    spring.datasource.username=your_username
-    spring.datasource.password=your_password
+    spring.datasource.url=jdbc:h2:mem:reservas_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+	spring.datasource.driverClassName=org.h2.Driver
+	spring.datasource.username=sa
+	spring.datasource.password=password
+	spring.h2.console.enabled=true
     ```
 
 3. Construye y ejecuta la aplicación:
